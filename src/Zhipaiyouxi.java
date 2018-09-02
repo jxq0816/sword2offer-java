@@ -1,23 +1,38 @@
 import java.util.Scanner;
 
 public class Zhipaiyouxi {
-    public static int[] sort(int a[]) {
-        int n=a.length;
-        //用冒泡排序法将序列A中的元素按从小到大排序
-        for (int i = 0; i < n - 1; i++) {
-            boolean flag = false;//表示本趟冒泡是否发生交换的标志
-            for (int j = n - 1; j > i; j--) {//一趟冒泡过程
-                if (a[j - 1]< a[j]) {//若为逆序
-                    int t=a[j-1];
-                    a[j-1]=a[j];
-                    a[j]=t;
-                    flag = true;
-                }
-            }
-            if (flag == false) {
-                return a;
+
+    public static int[] quicksort(int left,int right,int[] a)
+    {
+        int i,j,t,temp;
+        if(left>right)
+            return a;
+
+        temp=a[left]; //temp中存的就是基准数
+        i=left;
+        j=right;
+        while(i!=j)
+        {
+            //顺序很重要，要先从右边开始找
+            while(a[j]>=temp && i<j)
+                j--;
+            //再找右边的
+            while(a[i]<=temp && i<j)
+                i++;
+            //交换两个数在数组中的位置
+            if(i<j)
+            {
+                t=a[i];
+                a[i]=a[j];
+                a[j]=t;
             }
         }
+        //最终将基准数归位
+        a[left]=a[i];
+        a[i]=temp;
+
+        a=quicksort(left,i-1,a);//继续处理左边的，这里是一个递归的过程
+        a=quicksort(i+1,right,a);//继续处理右边的 ，这里是一个递归的过程
         return a;
     }
     public static void main(String[] args) {
@@ -27,16 +42,16 @@ public class Zhipaiyouxi {
         for (int i = 0; i < n; i++) {
             a[i] = scanner.nextInt();
         }
-        int[] b = sort(a);
+        int[] b = quicksort(0,a.length-1,a);
 //        for(int k : b){
 //            System.out.println(k);
 //        }
         int rs=0;
-        for(int j=0;j<b.length;j++){
+        for(int i=b.length-1,j=0;i>=0;i--,j++){
             if(j%2==0){
-                rs+=b[j];
-            }else{
-                rs-=b[j];
+                rs+=b[i];
+            }else {
+                rs -= b[i];
             }
         }
         System.out.println(rs);
