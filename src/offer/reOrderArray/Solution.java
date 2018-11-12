@@ -1,4 +1,4 @@
-package offer.array;
+package offer.reOrderArray;
 
 public class Solution {
     public static void main(String[] args){
