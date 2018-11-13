@@ -1,3 +1,5 @@
+package common;
+
 public class BubbleSort {
 
     public static int sort(int a[]) {

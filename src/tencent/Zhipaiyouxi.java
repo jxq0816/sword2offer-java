@@ -1,4 +1,8 @@
+package tencent;
+
 import java.util.Scanner;
+
+import static java.util.Arrays.sort;
 
 public class Zhipaiyouxi {
 
@@ -42,16 +46,13 @@ public class Zhipaiyouxi {
         for (int i = 0; i < n; i++) {
             a[i] = scanner.nextInt();
         }
-        int[] b = quicksort(0,a.length-1,a);
-//        for(int k : b){
-//            System.out.println(k);
-//        }
+        sort(a);
         int rs=0;
-        for(int i=b.length-1,j=0;i>=0;i--,j++){
+        for(int i=a.length-1,j=0;i>=0;i--,j++){
             if(j%2==0){
-                rs+=b[i];
+                rs+=a[i];
             }else {
-                rs -= b[i];
+                rs -= a[i];
             }
         }
         System.out.println(rs);
