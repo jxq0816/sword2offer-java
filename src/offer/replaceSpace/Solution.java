@@ -1,4 +1,4 @@
-package offer.replace;
+package offer.replaceSpace;
 
 public class Solution {
 
