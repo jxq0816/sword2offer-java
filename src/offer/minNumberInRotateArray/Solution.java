@@ -1,4 +1,4 @@
-package offer.min;
+package offer.minNumberInRotateArray;
 
 public class Solution {
     public int minNumberInRotateArray(int [] array) {
