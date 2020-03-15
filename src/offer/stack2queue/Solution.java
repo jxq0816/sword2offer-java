@@ -1,4 +1,4 @@
-package offer.queue;
+package offer.stack2queue;
 
 import java.util.Stack;
 
