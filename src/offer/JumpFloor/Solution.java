@@ -1,5 +1,5 @@
+//https://blog.csdn.net/jxq0816/article/details/104907756
 package offer.JumpFloor;
-
 public class Solution {
     public int JumpFloor(int target) {
         if(target==1){
